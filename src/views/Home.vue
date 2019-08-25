@@ -1,18 +1,38 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Header name="Bipush"/>
+    <PostsList v-bind:posts="posts"/>
+    <Description description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum repellendus doloremque fugit ea ipsa exercitationem, excepturi vero sint, alias, distinctio recusandae? Ea nemo non eaque tenetur, culpa quis repellat quia."/>
+    <Footer twitter="https://twitter.com/joystikman"/>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import Header from '@/components/Header.vue'
+import PostsList from '@/components/PostsList.vue'
+import Description from '@/components/Description.vue'
+import Footer from '@/components/Footer.vue'
 
 export default {
-  name: 'home',
+  name: 'Home',
   components: {
-    HelloWorld
+    Header,
+    PostsList,
+    Description,
+    Footer
+  },
+  data () {
+    return {
+      posts: [
+        { title: 'Article 1' },
+        { title: 'Article 2' }
+      ]
+    }
+  },
+  mounted() {
+    console.log('Mounted home');
+    this.$store.commit('setName','Bipush');
   }
 }
 </script>
