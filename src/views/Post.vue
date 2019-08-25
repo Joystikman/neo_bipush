@@ -20,12 +20,17 @@ export default {
   },
   data () {
     return {
+      id: '',
       post: {
         title: 'Titre',
         content: 'contenu',
         thumbnail: 'no image'
       }
     }
+  },
+  mounted() {
+    this.id = this.$route.params.id;
+    this.post = this.$store.getters.getPostById(this.id);
   }
 }
 </script>

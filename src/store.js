@@ -8,6 +8,7 @@ export default new Vuex.Store({
     name: 'name',
     description: 'description',
     url: '/',
+    twitter: '/',
     postsLink:'/',
     posts: null
   },
@@ -21,6 +22,9 @@ export default new Vuex.Store({
     setUrl (state, url){
       state.url = url;
     },
+    setTwitter (state, twitter){
+      state.twitter = twitter;
+    },
     setPostsLink (state, postsLink){
       state.postsLink = postsLink;
     },
@@ -32,6 +36,8 @@ export default new Vuex.Store({
 
   },
   getters: {
-
+    getPostById: (state) => (id) => {
+      return state.posts.find(post => post.id === id)
+    }
   }
 })

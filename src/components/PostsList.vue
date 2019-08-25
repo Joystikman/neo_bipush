@@ -2,8 +2,8 @@
   <div id="PostsList">
     Articles :
     <ul id="posts">
-      <li v-bind:key="post" v-for="(post, index) in posts">
-        <router-link :to="{ name: 'post', params: { id: index }}">
+      <li v-bind:key="post" v-for="(post) in posts">
+        <router-link :to="{ name: 'post', params: { id: post.id }}">
           {{post.title}}
         </router-link>
       </li>
