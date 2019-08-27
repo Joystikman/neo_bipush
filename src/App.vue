@@ -14,10 +14,18 @@ export default {
 </script>
 
 <style>
+@font-face {
+    font-family: 'Bipush';
+    src: url('assets/Bipush.ttf');
+  }
+@import url('https://fonts.googleapis.com/css?family=Inconsolata|Merriweather:700&display=swap');
 :root{
-  --main-color: #030200;
-  --background-color: #eeeeee;
+  --main-color: #080600;
+  --second-color: #080600b9;
+  --background-color: #ffffff;
+  --text-font: 'Inconsolata';
   background-color: var(--background-color);
+  color: var(--main-color);
 }
 
 body{
@@ -30,11 +38,16 @@ body{
   font-size: 18px;
 }
 
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+a{
+  text-decoration: none;
+  color: var(--main-color);
 }
+
+a:hover{
+  animation-duration: 3s;
+  animation-name: slidein;
+  color: var(--second-color);
+}
+
+
 </style>

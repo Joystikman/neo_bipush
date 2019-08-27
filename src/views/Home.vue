@@ -1,9 +1,12 @@
 <template>
-  <div class="home">
+  <div v-if="loaded" class="home">
     <Header v-bind:name="name"/>
     <PostsList v-bind:posts="posts"/>
     <Description v-bind:description="description"/>
     <Footer v-bind:twitter="twitter"/>
+  </div>
+  <div id="loading" v-else>
+    Loading...
   </div>
 </template>
 
@@ -26,6 +29,7 @@ export default {
   },
   data () {
     return {
+      loaded : false,
       name: 'name',
       description: 'description',
       url: 'url',
@@ -45,16 +49,29 @@ export default {
       this.$store.commit('setUrl',data.url);
       this.twitter = data.twitter;
       this.$store.commit('setTwitter',data.twitter);
+      this.$store.commit('retrieved');
+      this.loaded = true;
     },
     setPosts:function(data){
       console.log(data);
-      this.posts = data;
-      this.$store.commit('setPosts',data);
+      let published = data.filter(post => post.published === "yes");
+      console.log(published);
+      this.posts = published;
+      this.$store.commit('setPosts',published);
+      this.$store.commit('retrieved');
+      this.loaded = true;
     }
   },
   mounted() {
-    console.log('Mounted home');
-    console.log('blog_endpoint : '+config.blog_endpoint);
+    if(this.$store.getters.isRetrieved){
+      this.loaded = true;
+      this.name = this.$store.getters.name
+      this.description = this.$store.getters.description;
+      this.url = this.$store.getters.url;
+      this.twitter = this.$store.getters.twitter;
+      this.posts = this.$store.getters.posts;
+    }else
+    {
     //retrieve blog data
     axios
     .get(config.blog_endpoint)
@@ -65,6 +82,14 @@ export default {
     .get(config.posts_endpoint)
     .then(response => this.setPosts(response.data))
     .catch(error => console.log(error));
+    }
   }
 }
 </script>
+
+<style>
+  #loading{
+    margin : 25% auto;
+    max-width: 100px;
+  }
+</style>

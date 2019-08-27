@@ -1,11 +1,9 @@
 <template>
   <div id="PostsList">
-    Articles :
     <ul id="posts">
       <li v-bind:key="post" v-for="(post) in posts">
-        <router-link :to="{ name: 'post', params: { id: post.id }}">
-          {{post.title}}
-        </router-link>
+        <span>◑</span>        
+        <router-link :to="{ name: 'post', params: { id: post.id }}">{{post.title}}</router-link>       
       </li>
     </ul>
   </div>
@@ -21,18 +19,30 @@ export default {
 </script>
 
 <style scoped>
-  #Description{
+  #PostsList{
     width: 100%;
-    padding: 22px 0px;
-    background-color: var(--main-color);
-    text-align: center;
+    padding: 12px 0px;
+    min-height: 550px;
   }
 
-  #text {
+  #posts {
+    margin: 0 auto;
+    max-width: 500px;
     color: var(--main-color);
     background-color: var(--background-color);
-    margin: 2% 20%;
     padding: 2%;
-    max-width: 100px;
+  }
+
+  #posts li{
+    list-style-type: none;
+    margin: 48px 0px 24px 24px; 
+  }
+
+  #posts li span{
+    margin-bottom: 24px;
+  }
+
+  #posts a{
+    margin-left: 12px;
   }
 </style>

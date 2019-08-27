@@ -2,9 +2,10 @@
   <div id="Footer">
     <div id="twitter">
       <a v-bind:href="twitter">
-        <h3>follow me</h3>
+        ◯ Follow me
       </a>
     </div>
+    <div id="tagline">powered by swag</div>
   </div>
 </template>
 
@@ -17,22 +18,27 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
   #Footer{
     width: 100%;
     padding: 22px 0px;
     background-color: var(--main-color);
     text-align: center;
+    color: var(--background-color);
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
   }
 
-  #twitter {
-    color: var(--main-color);
-    background-color: var(--background-color);
-    padding: 2px;
-    border-radius: 25%;
-    max-width: 100px;
+  #Footer a {
+    color: var(--background-color);
   }
-  #twitter>h3{
-    font-size: 38px;
+
+  #twitter{
+    width: 15%;
+  }
+
+  #tagline{
+    margin-left: 15%;
   }
 </style>

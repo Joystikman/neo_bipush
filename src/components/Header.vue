@@ -1,9 +1,9 @@
 <template>
   <div id="Header">
     <div id="title">
-      <a href="/">
+      <router-link :to="{ name: 'home'}">
         <h1>{{name}}</h1>
-      </a>
+      </router-link>
     </div>
   </div>
 </template>
@@ -18,13 +18,16 @@ export default {
 </script>
 
 <style scoped>
+
   #Header{
     width: 100%;
-    padding: 22px 0px;
+    padding: 42px 0px;
   }
 
   #title {
     color: var(--main-color);
+    text-align: center;
+    font: 30px "Bipush";
   }
   #title>h1{
     font-size: 38px;

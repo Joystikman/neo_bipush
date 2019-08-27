@@ -10,7 +10,8 @@ export default new Vuex.Store({
     url: '/',
     twitter: '/',
     postsLink:'/',
-    posts: null
+    posts: null,
+    retrieved: false
   },
   mutations: {
     setName (state, name){
@@ -30,6 +31,9 @@ export default new Vuex.Store({
     },
     setPosts (state, posts){
       state.posts = posts;
+    },
+    retrieved(state){
+      state.retrieved = true;
     }
   },
   actions: {
@@ -38,6 +42,24 @@ export default new Vuex.Store({
   getters: {
     getPostById: (state) => (id) => {
       return state.posts.find(post => post.id === id)
-    }
+    },
+    posts: state => {
+      return state.posts
+    },
+    isRetrieved: state => {
+      return state.retrieved;
+    },
+    name: state => {
+      return state.name;
+    },
+    description: state => {
+      return state.description;
+    },
+    url: state => {
+      return state.url;
+    },
+    twitter: state => {
+      return state.twitter;
+    },
   }
 })

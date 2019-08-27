@@ -20,14 +20,13 @@ export default {
     width: 100%;
     padding: 22px 0px;
     background-color: var(--main-color);
-    text-align: center;
   }
 
   #text {
     color: var(--main-color);
     background-color: var(--background-color);
-    margin: 2% 20%;
+    margin: 0 auto;
+    max-width: 500px;
     padding: 2%;
-    max-width: 100px;
   }
 </style>
