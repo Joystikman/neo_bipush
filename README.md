@@ -1,9 +1,10 @@
 # neo_bipush
 
-##What is this
+## What is this
 This is a crappy vuejs framework that use google sheet as database.
 I wanted something way more simple than the nuclear power plant (aka Wordpress) I use today to publish my annual post.
 Probably broke but it works 🤖 
+http://bipush.fr
 
 ## How to use it
 Create a google sheet wich list :
@@ -22,7 +23,9 @@ And in a second page, write your posts (and inquire the following informations) 
 * date
 
 Then, publish your sheet on https://sheety.co/ , and complete your config.js file. Voilà ☢ 
-###VueJs classic shit
+
+
+### VueJs classic shit
 ```
 npm install
 ```
