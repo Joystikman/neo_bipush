@@ -3,9 +3,11 @@
     <div id="thumbnail" :style="{ backgroundImage: 'url(' + post.thumbnail + ')' }"></div>
     <h2 id="title">{{post.title}}</h2>
     <div id="content">
-      ◔ <div id="text" v-html="post.content"></div>◐
+      ◔ <span id="date">{{post.date}}</span>
+        <div v-bind:key="paragraph" v-for="paragraph in post.content.split('\n')" id="text" v-html="paragraph"></div>
+      ◐      
       <router-link :to="{ name: 'home'}">
-      ← home 
+      ← home
       </router-link>
     </div>
   </div>
@@ -38,6 +40,11 @@ export default {
     text-align: center;
     margin: 42px 0px;
     font-family: 'Merriweather', serif;
+  }
+
+  #date{
+    font-size: 16px;
+    color: var(--fade-color);
   }
 
   #content{

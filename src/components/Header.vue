@@ -9,10 +9,21 @@
 </template>
 
 <script>
+import config from '../config'
 export default {
   name: 'Header',
   props: {
     name: String
+  },
+  metaInfo: {
+    title: name,
+    htmlAttrs: {
+      lang: config.language,
+      amp: true
+    },
+    meta: [
+      { charset: 'utf-8' }
+    ]
   }
 }
 </script>

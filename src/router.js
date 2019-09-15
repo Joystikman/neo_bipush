@@ -8,7 +8,10 @@ export default new Router({
     {
       path: '/',
       name: 'home',
-      component: () => import('./views/Home.vue')
+      component: () => import('./views/Home.vue'),
+      meta: {
+        title: 'Bipush'
+      }
     },
     {
       path: '/about',
@@ -18,10 +21,13 @@ export default new Router({
       // which is lazy-loaded when the route is visited.
       component: () => import('./views/About.vue')
     },
-    { 
-      path: '/post/:id', 
-      name: 'post', 
-      component: () => import('./views/Post.vue') 
+    {
+      path: '/post/:id',
+      name: 'post',
+      component: () => import('./views/Post.vue'),
+      meta: {
+        title: 'Bipush'
+      }
     },
     {
       path: '*', /* default route */

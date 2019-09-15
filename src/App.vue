@@ -22,6 +22,7 @@ export default {
 :root{
   --main-color: #080600;
   --second-color: #080600b9;
+  --fade-color : #a8a8a8;
   --background-color: #ffffff;
   --text-font: 'Inconsolata';
   background-color: var(--background-color);
@@ -48,6 +49,5 @@ a:hover{
   animation-name: slidein;
   color: var(--second-color);
 }
-
 
 </style>

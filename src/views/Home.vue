@@ -16,7 +16,7 @@ import Header from '@/components/Header.vue'
 import PostsList from '@/components/PostsList.vue'
 import Description from '@/components/Description.vue'
 import Footer from '@/components/Footer.vue'
-import axios from 'axios';
+import axios from 'axios'
 import config from '../config'
 
 export default {
@@ -29,7 +29,7 @@ export default {
   },
   data () {
     return {
-      loaded : false,
+      loaded: false,
       name: 'name',
       description: 'description',
       url: 'url',
@@ -37,51 +37,50 @@ export default {
       posts: []
     }
   },
-  methods:{
-    setBlogData:function(data){
-      console.log(data);
-      data = data[0];
-      this.name = data.name;
-      this.$store.commit('setName',data.name);
-      this.description = data.description;
-      this.$store.commit('setDescription',data.description);
-      this.url = data.url;
-      this.$store.commit('setUrl',data.url);
-      this.twitter = data.twitter;
-      this.$store.commit('setTwitter',data.twitter);
-      this.$store.commit('retrieved');
-      this.loaded = true;
+  methods: {
+    setBlogData: function (data) {
+      console.log(data)
+      data = data[0]
+      this.name = data.name
+      this.$store.commit('setName', data.name)
+      this.description = data.description
+      this.$store.commit('setDescription', data.description)
+      this.url = data.url
+      this.$store.commit('setUrl', data.url)
+      this.twitter = data.twitter
+      this.$store.commit('setTwitter', data.twitter)
+      this.$store.commit('retrieved')
+      this.loaded = true
     },
-    setPosts:function(data){
-      console.log(data);
-      let published = data.filter(post => post.published === "yes");
-      console.log(published);
-      this.posts = published;
-      this.$store.commit('setPosts',published);
-      this.$store.commit('retrieved');
-      this.loaded = true;
+    setPosts: function (data) {
+      console.log(data)
+      let published = data.filter(post => post.published === 'yes')
+      console.log(published)
+      this.posts = published
+      this.$store.commit('setPosts', published)
+      this.$store.commit('retrieved')
+      this.loaded = true
     }
   },
-  mounted() {
-    if(this.$store.getters.isRetrieved){
-      this.loaded = true;
+  mounted () {
+    if (this.$store.getters.isRetrieved) {
+      this.loaded = true
       this.name = this.$store.getters.name
-      this.description = this.$store.getters.description;
-      this.url = this.$store.getters.url;
-      this.twitter = this.$store.getters.twitter;
-      this.posts = this.$store.getters.posts;
-    }else
-    {
-    //retrieve blog data
-    axios
-    .get(config.blog_endpoint)
-    .then(response => this.setBlogData(response.data))
-    .catch(error => console.log(error));
-    //retrieve posts
-    axios
-    .get(config.posts_endpoint)
-    .then(response => this.setPosts(response.data))
-    .catch(error => console.log(error));
+      this.description = this.$store.getters.description
+      this.url = this.$store.getters.url
+      this.twitter = this.$store.getters.twitter
+      this.posts = this.$store.getters.posts
+    } else {
+    // retrieve blog data
+      axios
+        .get(config.blog_endpoint)
+        .then(response => this.setBlogData(response.data))
+        .catch(error => console.log(error))
+      // retrieve posts
+      axios
+        .get(config.posts_endpoint)
+        .then(response => this.setPosts(response.data))
+        .catch(error => console.log(error))
     }
   }
 }

@@ -9,31 +9,31 @@ export default new Vuex.Store({
     description: 'description',
     url: '/',
     twitter: '/',
-    postsLink:'/',
+    postsLink: '/',
     posts: null,
     retrieved: false
   },
   mutations: {
-    setName (state, name){
-      state.name = name;
+    setName (state, name) {
+      state.name = name
     },
-    setDescription (state, description){
-      state.description = description;
+    setDescription (state, description) {
+      state.description = description
     },
-    setUrl (state, url){
-      state.url = url;
+    setUrl (state, url) {
+      state.url = url
     },
-    setTwitter (state, twitter){
-      state.twitter = twitter;
+    setTwitter (state, twitter) {
+      state.twitter = twitter
     },
-    setPostsLink (state, postsLink){
-      state.postsLink = postsLink;
+    setPostsLink (state, postsLink) {
+      state.postsLink = postsLink
     },
-    setPosts (state, posts){
-      state.posts = posts;
+    setPosts (state, posts) {
+      state.posts = posts
     },
-    retrieved(state){
-      state.retrieved = true;
+    retrieved (state) {
+      state.retrieved = true
     }
   },
   actions: {
@@ -47,19 +47,19 @@ export default new Vuex.Store({
       return state.posts
     },
     isRetrieved: state => {
-      return state.retrieved;
+      return state.retrieved
     },
     name: state => {
-      return state.name;
+      return state.name
     },
     description: state => {
-      return state.description;
+      return state.description
     },
     url: state => {
-      return state.url;
+      return state.url
     },
     twitter: state => {
-      return state.twitter;
-    },
+      return state.twitter
+    }
   }
 })

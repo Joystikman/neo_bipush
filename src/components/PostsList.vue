@@ -2,8 +2,8 @@
   <div id="PostsList">
     <ul id="posts">
       <li v-bind:key="post" v-for="(post) in posts">
-        <span>◑</span>        
-        <router-link :to="{ name: 'post', params: { id: post.id }}">{{post.title}}</router-link>       
+        <span>◑</span>
+        <router-link :to="{ name: 'post', params: { id: post.id }}">{{post.title}}</router-link>
       </li>
     </ul>
   </div>
@@ -35,7 +35,7 @@ export default {
 
   #posts li{
     list-style-type: none;
-    margin: 48px 0px 24px 24px; 
+    margin: 48px 0px 24px 24px;
   }
 
   #posts li span{
